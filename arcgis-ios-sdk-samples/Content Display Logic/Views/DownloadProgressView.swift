@@ -102,7 +102,7 @@ class DownloadProgressView: UIView {
         self.transparentShapeLayer.frame = CGRect(x: 0, y: 0, width: 2 * self.radius, height: 2 * self.radius)
         self.transparentShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: self.radius, y: self.radius), radius: self.radius, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true).cgPath
         self.transparentShapeLayer.fillColor = UIColor.clear.cgColor
-        self.transparentShapeLayer.strokeColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor
+        
         self.transparentShapeLayer.lineWidth = 3
         
         self.progressLabel.layer.addSublayer(self.transparentShapeLayer)
@@ -111,7 +111,15 @@ class DownloadProgressView: UIView {
         self.shapeLayer.frame = CGRect(x: 0, y: 0, width: 2 * self.radius, height: 2 * self.radius)
         self.shapeLayer.path = self.bezierPath.cgPath
         self.shapeLayer.fillColor = UIColor.clear.cgColor
-        self.shapeLayer.strokeColor = UIColor.black.cgColor
+        
+        if #available(iOS 13, *) {
+            self.shapeLayer.strokeColor = UIColor.label.cgColor
+            self.transparentShapeLayer.strokeColor = UIColor.systemGray.cgColor
+        } else {
+            self.shapeLayer.strokeColor = UIColor.black.cgColor
+            self.transparentShapeLayer.strokeColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor
+        }
+        
         self.shapeLayer.lineWidth = 3
         self.shapeLayer.strokeEnd = 0
         

@@ -46,7 +46,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="Zjh-ix-0i1" firstAttribute="leading" secondItem="FvF-Nq-g4W" secondAttribute="leading" constant="8" id="6pn-t6-i04"/>
                         <constraint firstItem="Zjh-ix-0i1" firstAttribute="top" secondItem="4ko-G4-tpJ" secondAttribute="bottom" constant="40" id="ImI-x3-AYC"/>
