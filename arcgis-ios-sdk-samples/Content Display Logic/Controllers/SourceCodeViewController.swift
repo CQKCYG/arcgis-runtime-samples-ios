@@ -63,7 +63,12 @@ class SourceCodeViewController: UIViewController, UIAdaptivePresentationControll
     }
     
     func htmlStringForContent(_ content: String) -> String {
-        let cssPath = Bundle.main.path(forResource: "xcode", ofType: "css") ?? ""
+        let cssPath: String
+        if traitCollection.userInterfaceStyle == .dark {
+            cssPath = Bundle.main.path(forResource: "solarized-dark", ofType: "css") ?? ""
+        } else {
+            cssPath = Bundle.main.path(forResource: "xcode", ofType: "css") ?? ""
+        }
         let jsPath = Bundle.main.path(forResource: "highlight.pack", ofType: "js") ?? ""
         let scale = UIDevice.current.userInterfaceIdiom == .phone ? "0.5" : "1.0"
         let stringForHTML = """
@@ -87,7 +92,7 @@ class SourceCodeViewController: UIViewController, UIAdaptivePresentationControll
         if filenames.count > 1 {
             titleString = String(format: "%@ %@", (arrowPointingDown ? "▶︎" : " \u{25B4}"), filename)
         } else {
-            self.toolbarTitleButton.setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
+            self.toolbarTitleButton.setTitleTextAttributes([.foregroundColor: UIColor.darkGray], for: .normal)
         }
         self.toolbarTitleButton.title = titleString
     }
