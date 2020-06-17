@@ -111,16 +111,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             navigationBarAppearanceProxy.standardAppearance = navigationBarAppearance
             navigationBarAppearanceProxy.compactAppearance = navigationBarAppearance
             navigationBarAppearanceProxy.scrollEdgeAppearance = navigationBarAppearance
+            
+            UIToolbar.appearance().barTintColor = .systemBackground
         } else {
             navigationBarAppearanceProxy.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
             navigationBarAppearanceProxy.titleTextAttributes = [.foregroundColor: UIColor.white]
             navigationBarAppearanceProxy.barTintColor = .primaryBlue
+            
+            UIToolbar.appearance().barTintColor = .backgroundGray
         }
         navigationBarAppearanceProxy.tintColor = .white
         
-        UIToolbar.appearance().barTintColor = .backgroundGray
         UIToolbar.appearance().tintColor = .primaryBlue
-        
         UISwitch.appearance().onTintColor = .primaryBlue
         UISlider.appearance().tintColor = .primaryBlue
     }
