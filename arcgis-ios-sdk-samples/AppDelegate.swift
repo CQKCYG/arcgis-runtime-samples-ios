@@ -111,18 +111,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             navigationBarAppearanceProxy.standardAppearance = navigationBarAppearance
             navigationBarAppearanceProxy.compactAppearance = navigationBarAppearance
             navigationBarAppearanceProxy.scrollEdgeAppearance = navigationBarAppearance
-            
-            UIToolbar.appearance().barTintColor = .systemBackground
         } else {
             navigationBarAppearanceProxy.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
             navigationBarAppearanceProxy.titleTextAttributes = [.foregroundColor: UIColor.white]
             navigationBarAppearanceProxy.barTintColor = .primaryBlue
-            
-            UIToolbar.appearance().barTintColor = .backgroundGray
         }
         navigationBarAppearanceProxy.tintColor = .white
         
+        UIToolbar.appearance().barTintColor = .backgroundGray
         UIToolbar.appearance().tintColor = .primaryBlue
+        
         UISwitch.appearance().onTintColor = .primaryBlue
         UISlider.appearance().tintColor = .primaryBlue
     }
@@ -173,7 +171,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 extension UIColor {
     class var primaryBlue: UIColor { return #colorLiteral(red: 0, green: 0.475, blue: 0.757, alpha: 1) }
     class var secondaryBlue: UIColor { return #colorLiteral(red: 0, green: 0.368, blue: 0.584, alpha: 1) }
-    class var backgroundGray: UIColor { return #colorLiteral(red: 0.973, green: 0.973, blue: 0.973, alpha: 1) }
     class var primaryTextColor: UIColor { return #colorLiteral(red: 0.196, green: 0.196, blue: 0.196, alpha: 1) }
     class var secondaryTextColor: UIColor { return #colorLiteral(red: 0.349, green: 0.349, blue: 0.349, alpha: 1) }
+    
+    static let backgroundGray: UIColor = {
+        if #available(iOS 13, *) {
+            return .systemBackground
+        } else {
+            return #colorLiteral(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
+        }
+    }()
 }
