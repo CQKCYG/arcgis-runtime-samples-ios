@@ -174,7 +174,7 @@ extension UIColor {
     
     static let backgroundGray: UIColor = {
         if #available(iOS 13, *) {
-            return .systemBackground
+            return .secondarySystemBackground
         } else {
             return #colorLiteral(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
         }
