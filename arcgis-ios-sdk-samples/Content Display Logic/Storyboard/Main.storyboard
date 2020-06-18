@@ -289,17 +289,17 @@
             <objects>
                 <viewController storyboardIdentifier="SegmentedViewController" automaticallyAdjustsScrollViewInsets="NO" id="aBz-1T-a42" customClass="SegmentedViewController" customModule="ArcGIS_Runtime_SDK_Samples" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rXs-h5-bEr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z5R-Ku-rtU" userLabel="Code Container View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <connections>
                                     <segue destination="qe9-PB-Pzq" kind="embed" identifier="SourceCodeSegue" id="nmt-TZ-5x3"/>
                                 </connections>
                             </containerView>
                             <containerView contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MfE-3m-v2G" userLabel="Info Container View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <connections>
                                     <segue destination="NMd-B8-rJ5" kind="embed" identifier="SampleInfoSegue" id="c6m-uQ-Kz4"/>
                                 </connections>
@@ -354,7 +354,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BNK-Yk-cxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2022" y="238"/>
+            <point key="canvasLocation" x="1358" y="129"/>
         </scene>
         <!--Source Code View Controller-->
         <scene sceneID="Ib1-Dw-wps">
@@ -403,7 +403,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eWR-U8-1d5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1325" y="97"/>
+            <point key="canvasLocation" x="2023" y="129"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="jfl-Ru-DY2">
@@ -470,7 +470,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yhe-8p-BRS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1326" y="758"/>
+            <point key="canvasLocation" x="2020" y="787"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
