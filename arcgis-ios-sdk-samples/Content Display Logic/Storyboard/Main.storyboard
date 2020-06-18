@@ -126,7 +126,7 @@
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNK-Sn-V8R">
                                             <rect key="frame" x="45" y="45" width="50" height="50"/>
-                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69533653846153842" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="GZk-MD-Oea"/>
                                                 <constraint firstAttribute="height" constant="50" id="mIH-VU-z34"/>
