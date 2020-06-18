@@ -169,16 +169,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 }
 
 extension UIColor {
-    class var primaryBlue: UIColor { return #colorLiteral(red: 0, green: 0.475, blue: 0.757, alpha: 1) }
-    class var secondaryBlue: UIColor { return #colorLiteral(red: 0, green: 0.368, blue: 0.584, alpha: 1) }
-    class var primaryTextColor: UIColor { return #colorLiteral(red: 0.196, green: 0.196, blue: 0.196, alpha: 1) }
-    class var secondaryTextColor: UIColor { return #colorLiteral(red: 0.349, green: 0.349, blue: 0.349, alpha: 1) }
+    static let primaryBlue: UIColor = { return #colorLiteral(red: 0, green: 0.475, blue: 0.757, alpha: 1) }()
+    static let secondaryBlue: UIColor = { return #colorLiteral(red: 0, green: 0.368, blue: 0.584, alpha: 1) }()
     
     static let backgroundGray: UIColor = {
         if #available(iOS 13, *) {
             return .systemBackground
         } else {
             return #colorLiteral(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
+        }
+    }()
+    
+    static let primaryTextColor: UIColor = {
+        if #available(iOS 13, *) {
+            return .label
+        } else {
+            return #colorLiteral(red: 0.196, green: 0.196, blue: 0.196, alpha: 1)
+        }
+    }()
+    
+    static let secondaryTextColor: UIColor = {
+        if #available(iOS 13, *) {
+            return .secondaryLabel
+        } else {
+            return #colorLiteral(red: 0.349, green: 0.349, blue: 0.349, alpha: 1)
         }
     }()
 }
