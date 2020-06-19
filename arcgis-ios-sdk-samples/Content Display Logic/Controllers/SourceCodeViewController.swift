@@ -47,7 +47,7 @@ class SourceCodeViewController: UIViewController, UIAdaptivePresentationControll
         }
     }
     
-    /// Change the highlight.js rendering when switch to dark mode.
+    /// Change the highlight.js rendered HTML when switch  between modes.
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         loadHTMLPage(filename: currentFilename)
