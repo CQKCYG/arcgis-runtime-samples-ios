@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S32-F9-ls6">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Apply Mosaic Rule To Rasters View Controller-->
+        <scene sceneID="379-GV-nj8">
+            <objects>
+                <viewController id="S32-F9-ls6" customClass="ApplyMosaicRuleToRastersViewController" customModule="ArcGIS_Runtime_SDK_Samples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="94X-Cu-Gjt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6uE-vk-1KH" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6uE-vk-1KH" firstAttribute="trailing" secondItem="94X-Cu-Gjt" secondAttribute="trailing" id="0Ae-Ew-1XH"/>
+                            <constraint firstItem="6uE-vk-1KH" firstAttribute="leading" secondItem="94X-Cu-Gjt" secondAttribute="leading" id="G3m-GW-HtA"/>
+                            <constraint firstItem="6uE-vk-1KH" firstAttribute="top" secondItem="94X-Cu-Gjt" secondAttribute="top" id="QfT-qR-4pc"/>
+                            <constraint firstAttribute="bottom" secondItem="6uE-vk-1KH" secondAttribute="bottom" id="dyd-mO-4jd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QNQ-3c-RK0"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="6uE-vk-1KH" id="cTk-Dd-ztd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6eq-Y4-49z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="218.84057971014494" y="130.58035714285714"/>
+        </scene>
+    </scenes>
+</document>
