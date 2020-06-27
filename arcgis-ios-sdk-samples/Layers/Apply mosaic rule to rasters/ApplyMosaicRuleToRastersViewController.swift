@@ -20,9 +20,9 @@ class ApplyMosaicRuleToRastersViewController: UIViewController {
     @IBOutlet weak var mapView: AGSMapView! {
         didSet {
             mapView.map = makeMap()
-            // set the viewpoint to the Golden Gate of the San Francisco Bay
-            let center = AGSPoint(x: 4488652, y: 5477384, spatialReference: .webMercator())
-            mapView.setViewpointCenter(center, scale: 100000)
+            // set the viewpoint to the
+//            let center = AGSPoint(x: 11.858047, y: 49.444977, spatialReference: .wgs84())
+//            mapView.setViewpointCenter(center, scale: 10000)
         }
     }
     
@@ -37,8 +37,19 @@ class ApplyMosaicRuleToRastersViewController: UIViewController {
         // Create a raster layer.
         let rasterLayer = AGSRasterLayer(raster: imageServiceRaster)
         let map = AGSMap(basemap: .darkGrayCanvasVector())
-        // add raster layer as an operational layer to the map
+        // Add raster layer as an operational layer to the map.
         map.operationalLayers.add(rasterLayer)
+        rasterLayer.load { [weak self] (error: Error?) in
+            guard let self = self else { return }
+            if let error = error {
+                self.presentAlert(error: error)
+            } else {
+                // Set map view's viewpoint to the image service raster's full extent
+                if let center = imageServiceRaster.serviceInfo?.fullExtent?.center {
+                    self.mapView.setViewpoint(AGSViewpoint(center: center, scale: 58000000.0))
+                }
+            }
+        }
         return map
     }
     
