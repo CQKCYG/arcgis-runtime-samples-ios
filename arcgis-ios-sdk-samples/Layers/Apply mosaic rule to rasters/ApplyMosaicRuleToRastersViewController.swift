@@ -20,37 +20,68 @@ class ApplyMosaicRuleToRastersViewController: UIViewController {
     @IBOutlet weak var mapView: AGSMapView! {
         didSet {
             mapView.map = makeMap()
-            // set the viewpoint to the
-//            let center = AGSPoint(x: 11.858047, y: 49.444977, spatialReference: .wgs84())
-//            mapView.setViewpointCenter(center, scale: 10000)
         }
     }
+    
+    var imageServiceRaster: AGSImageServiceRaster!
+    var rasterLayer: AGSRasterLayer!
     
     /// Create a map.
     ///
     /// - Returns: An `AGSMap` object.
     func makeMap() -> AGSMap {
         // The URL of an image service.
-        let imageServiceURL = URL(string: "https://rtc-100-8.esri.com/arcgis/rest/services/imageServices/amberg_germany/ImageServer")!
+        let imageServiceURL = URL(string: "http://rtc-100-8.esri.com/arcgis/rest/services/imageServices/amberg_germany/ImageServer")!
         // Create an image service raster from an online raster service.
-        let imageServiceRaster = AGSImageServiceRaster(url: imageServiceURL)
+        imageServiceRaster = AGSImageServiceRaster(url: imageServiceURL)
         // Create a raster layer.
-        let rasterLayer = AGSRasterLayer(raster: imageServiceRaster)
-        let map = AGSMap(basemap: .darkGrayCanvasVector())
+        rasterLayer = AGSRasterLayer(raster: imageServiceRaster)
+        
+        let map = AGSMap(basemap: .terrainWithLabelsVector())
         // Add raster layer as an operational layer to the map.
-        map.operationalLayers.add(rasterLayer)
+        map.operationalLayers.add(rasterLayer!)
         rasterLayer.load { [weak self] (error: Error?) in
             guard let self = self else { return }
             if let error = error {
                 self.presentAlert(error: error)
             } else {
                 // Set map view's viewpoint to the image service raster's full extent
-                if let center = imageServiceRaster.serviceInfo?.fullExtent?.center {
-                    self.mapView.setViewpoint(AGSViewpoint(center: center, scale: 58000000.0))
+                if let center = self.imageServiceRaster.serviceInfo?.fullExtent?.center {
+                    self.mapView.setViewpoint(AGSViewpoint(center: center, scale: 25000.0))
                 }
             }
         }
         return map
+    }
+    
+    @IBAction func applyRasterFunction(_ sender: UIBarButtonItem) {
+        // Define the JSON string needed for the raster function
+        let rasterFunctionJSONString = """
+        {
+          "mosaicMethod" : "esriMosaicCenter",
+          "ascending" : true,
+          "mosaicOperation" : "MT_FIRST",
+          "where":"ImageType='Landsat7'"
+        }
+        """
+
+        // NOTE: You can alternatively create the raster function via a JSON string that is contained in a
+        // file on disk (ex: hillshade_simplified.json) via the constructor: AGSRasterFunction(fileURL:)
+        
+        // Create a raster function from the JSON string
+        if let rasterFunction = AGSRasterFunction.fromJSON(rasterFunctionJSONString, error: nil) as? AGSRasterFunction {
+            // Get the raster function arguments
+            let rasterFunctionArguments = rasterFunction.arguments
+            // Get first raster name from raster function arguments
+            let rasterName = rasterFunctionArguments?.rasterNames.first
+            // Set image service raster in the raster function arguments with name
+            rasterFunctionArguments?.setRaster(imageServiceRaster, withName: rasterName!)
+            // Create new raster with raster function
+            let raster = AGSRaster(rasterFunction: rasterFunction)
+            // Create a new raster layer from the raster
+            let layer = AGSRasterLayer(raster: raster)
+            rasterLayer = layer
+        }
     }
     
     override func viewDidLoad() {
