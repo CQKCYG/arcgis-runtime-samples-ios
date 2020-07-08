@@ -389,9 +389,6 @@
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZS-cc-Di0">
                                 <rect key="frame" x="0.0" y="680" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Kff-Ig-9pK"/>
-                                </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="RgF-M3-ILn"/>
                                     <barButtonItem id="zbn-kS-wmE">
@@ -407,11 +404,11 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="rA3-JQ-Mdx" secondAttribute="trailing" id="Gxz-aI-6b0"/>
-                            <constraint firstItem="cZS-cc-Di0" firstAttribute="leading" secondItem="63H-yR-XyK" secondAttribute="leading" id="HbP-pv-Z3e"/>
+                            <constraint firstItem="cZS-cc-Di0" firstAttribute="leading" secondItem="PsA-Cm-EhI" secondAttribute="leading" id="HbP-pv-Z3e"/>
                             <constraint firstItem="63H-yR-XyK" firstAttribute="bottom" secondItem="cZS-cc-Di0" secondAttribute="bottom" id="UmR-sv-GZn"/>
                             <constraint firstItem="rA3-JQ-Mdx" firstAttribute="top" secondItem="PsA-Cm-EhI" secondAttribute="top" id="lAi-DH-gfE"/>
                             <constraint firstItem="rA3-JQ-Mdx" firstAttribute="leading" secondItem="PsA-Cm-EhI" secondAttribute="leading" id="tTG-eT-spV"/>
-                            <constraint firstItem="cZS-cc-Di0" firstAttribute="trailing" secondItem="63H-yR-XyK" secondAttribute="trailing" id="wAh-N1-Zqp"/>
+                            <constraint firstItem="cZS-cc-Di0" firstAttribute="trailing" secondItem="PsA-Cm-EhI" secondAttribute="trailing" id="wAh-N1-Zqp"/>
                             <constraint firstItem="cZS-cc-Di0" firstAttribute="top" secondItem="rA3-JQ-Mdx" secondAttribute="bottom" id="xgj-Pi-jqq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="63H-yR-XyK"/>
