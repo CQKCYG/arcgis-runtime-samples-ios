@@ -305,6 +305,7 @@
                                 </connections>
                             </containerView>
                         </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="MfE-3m-v2G" firstAttribute="top" secondItem="Asf-ux-BYr" secondAttribute="top" id="CwL-cC-IdS"/>
                             <constraint firstItem="z5R-Ku-rtU" firstAttribute="trailing" secondItem="rXs-h5-bEr" secondAttribute="trailing" id="Io8-c8-jLg"/>
@@ -349,8 +350,27 @@
                     <view key="view" contentMode="scaleToFill" id="p2z-Do-b04">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CBc-e0-fEo">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="CBc-e0-fEo" secondAttribute="bottom" id="0lX-QX-j0h"/>
+                            <constraint firstItem="CBc-e0-fEo" firstAttribute="leading" secondItem="p2z-Do-b04" secondAttribute="leading" id="BVm-rM-qz7"/>
+                            <constraint firstItem="CBc-e0-fEo" firstAttribute="top" secondItem="p2z-Do-b04" secondAttribute="top" id="dvL-JP-8Mq"/>
+                            <constraint firstAttribute="trailing" secondItem="CBc-e0-fEo" secondAttribute="trailing" id="qLf-wX-H6f"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="RfT-xO-g6f"/>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="CBc-e0-fEo" id="yR5-h1-4cE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BNK-Yk-cxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

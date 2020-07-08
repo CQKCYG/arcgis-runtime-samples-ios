@@ -24,14 +24,8 @@ class SampleInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // We must construct the web view in code as long as we support iOS 10.
-        // Prior to iOS 11, there was a bug in WKWebView.init(coder:) that
-        // caused a crash.
-        let webView = WKWebView(frame: view.bounds)
         webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         webView.navigationDelegate = self
-        view.addSubview(webView)
-        self.webView = webView
         
         if let readmeURL = readmeURL,
             let html = markdownTextFromFile(at: readmeURL) {
