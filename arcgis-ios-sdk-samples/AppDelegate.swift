@@ -172,6 +172,14 @@ extension UIColor {
     static let primaryBlue: UIColor = { return #colorLiteral(red: 0, green: 0.475, blue: 0.757, alpha: 1) }()
     static let secondaryBlue: UIColor = { return #colorLiteral(red: 0, green: 0.368, blue: 0.584, alpha: 1) }()
     
+    static let systemBackgroundWithOpacity: UIColor = {
+        if #available(iOS 13, *) {
+            return UIColor.systemBackground.withAlphaComponent(0.6)
+        } else {
+            return #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.6)
+        }
+    }()
+    
     static let backgroundGray: UIColor = {
         if #available(iOS 13, *) {
             return .secondarySystemBackground
