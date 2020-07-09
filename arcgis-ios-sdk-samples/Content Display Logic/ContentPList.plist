@@ -803,6 +803,14 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>Feature collection layer (portal item)</string>
+				<key>descriptionText</key>
+				<string>Create a feature collection layer from a portal item.</string>
+				<key>storyboardName</key>
+				<string>FeatureCollectionLayerFromPortal</string>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Feature collection layer (query)</string>
 				<key>storyboardName</key>
 				<string>FeatureCollectionLayerQuery</string>
@@ -1717,6 +1725,14 @@
 				<string>ExploreScenesInFlyoverAR</string>
 				<key>descriptionText</key>
 				<string>Use augmented reality (AR) to quickly explore a scene more naturally than you could with a touch or mouse interface.</string>
+			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Navigate in AR</string>
+				<key>storyboardName</key>
+				<string>NavigateAR</string>
+				<key>descriptionText</key>
+				<string>Use a route displayed in the real world to navigate.</string>
 			</dict>
 		</array>
 	</dict>
